@@ -1,7 +1,7 @@
 import numpy as np
 
 
-# Define 1D Gaussian kernel
+# 1D Gaussian kernel
 def gauss(x=11, sig=1):
     xx = np.linspace(-(x - 1) / 2, (x - 1) / 2, x)
     kernel = np.exp(-((xx / sig) ** 2) / 2) / (sig * np.sqrt(2 * np.pi))
@@ -9,7 +9,7 @@ def gauss(x=11, sig=1):
     return kernel / np.sum(kernel)
 
 
-# 2D Gaussian kernel, for future use
+# 2D Gaussian kernel
 def gauss2d(x=5, sig=1):
     xx = np.linspace(-(x - 1) / 2, (x - 1) / 2, x)
     kernel = np.exp(-((xx / sig) ** 2) / 2) / (sig * np.sqrt(2 * np.pi))
@@ -19,7 +19,7 @@ def gauss2d(x=5, sig=1):
 
 
 # Wrapper for convolution
-def g_cov(arr, x=300, sig=300):
+def conv(arr, x=300, sig=300, type="gauss"):
     if np.nansum(arr) == 0:
         return arr
 
